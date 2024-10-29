@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: rgba(255, 228, 196, 0.24);
+		}
+		ul {
+			list-style-type: disc;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+		li {
+			padding-right: 35px;
+		}
+
+		li a {
+			color: rgb(7, 7, 7);
+			padding: 15px;
+			text-decoration: none;
+		}
+
+		li a:hover {
+			background-color: #11111127;
+			border-radius: 15%;
+		}
+
+		table, th, td {
+			background-color: rgba(255, 254, 240, 0.384);
+			border: 2px solid black;
+			border-collapse: collapse;
+		}
+
+	</style>
+	<title>Osema's CV</title>
+</head>
+<body>
+	<h1 style="text-align: center; font-size: 250% ; color:rgba(6, 6, 95, 0.74); font-family: Arial;">Osema Fadhel</h1>
+
+	<ul style="justify-content: center; display: flex;">
+		<li>ofadhel@student.42roma.it</li>
+		<li>+39 1234567890</li>
+		<li><a href="https://www.linkedin.com/in/osemafadhel/">Linkedin</a></li>
+		<li><a href="https://github.com/OsemaFadhel">Github</a></li>
+	</ul>
+
+	<div style="padding-top: 5%;">
+		<h3>Education &#128214</h3>
+		<ol style="list-style-type: circle;">
+			<li><b>42 Roma Luiss:</b> Computer Science</li>
+		</ol>
+	</div>
+
+	<div style="padding-top: 2%;">
+		<h3>Skills &#128187</h3>
+		<ol style="list-style-type: disc;">
+			<li><b>Software Development: </b>C/C++, Python, Java</li>
+			<li><b>Web: </b>Html, Css, Javascript, Django</li>
+		</ol>
+	</div>
+
+	<div style="padding-top: 2%;">
+		<h3>Projects &#128193</h3>
+		<table>
+			<tr>
+				<td><b>Minishell</b></td>
+				<td>Developed a simplified Unix shell in C with built-in commands such as cd, export, unset, echo, and more.<br>
+					Implemented basic shell functionalities including process creation, signal handling, and piping.
+				</td>
+			</tr>
+			<tr>
+				<td><b>Inception</b></td>
+				<td>Created and deployed a Docker-based environment featuring Nginx, MariaDB, and WordPress,
+					automating the setup of containerized services for web hosting and database management.</td>
+			</tr>
+			<tr style="border: solid #424242;">
+				<td style="border: solid #424242;"><b>IRC Server</b></td>
+				<td style="border: solid #424242;">Built an IRC server in C++ based on the RFC 1459 standard, handling multiple clients and channels.<br>
+					Implemented commands for user management and communication between clients in real-time over a network.</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>

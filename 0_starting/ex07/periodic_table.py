@@ -1,30 +1,62 @@
 import sys
 
 def create_html(dictionary):
-	html = open('periodic_table.html', 'w')
-	html.write('<!DOCTYPE html>\n')
-	html.write('<html>\n')
-	html.write('\t<head>\n')
-	html.write('\t\t<title>Periodic Table</title>\n')
-	html.write('\t</head>\n')
-	html.write('\t<body>\n')
-	html.write('\t\t<table>\n')
-	html.write('\t\t\t<tr>\n')
+	html = """
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Periodic Table</title>
+			<style>
+				h4 {{
+					text-align: center;
+				}}
+			</style>
+		</head>
+		<body>
+			<h1 style="display: flex; justify-content: center; color: blue; font-family: Arial;">Periodic Table</h1>
+			<table>
+				{templ}
+			</table>
+		</body>
+	</html>
+	"""
+
+	template = """
+					<td style="border: 2px solid black; padding:10px; background-color: #f0f0f0;">
+						<h4>{key}</h4>
+							<ul>
+								<li>NO {number}</li>
+								<li>{small}</li>
+								<li>{molar}</li>
+								<li>{electrons} electron</li>
+							</ul>
+					</td>
+	"""
+
+	# Create the HTML file
+	templ = "<tr>"
+	position = 0
+
 	for key, values in dictionary.items():
 		details_dict = dict(item.split(':') for item in values.split(', '))
-		html.write('\t' * 4 + '<td style="border: 1px solid black; padding:10px">\n')
-		html.write('\t' * 5 + '<h4>' + key + '</h4>\n')
-		html.write('\t' * 6 + '<ul>\n')
-		html.write('\t' * 7 + '<li>NO ' + details_dict["number"] + '</li>\n')
-		html.write('\t' * 7 + '<li>' + details_dict["small"].strip() + '</li>\n')
-		html.write('\t' * 7 + '<li>' + details_dict["molar"] + '</li>\n')
-		html.write('\t' * 7 + '<li>' + details_dict["electron"] + ' electron</li>\n')
-		html.write('\t' * 6 + '</ul>\n')
-		html.write('\t' * 4 + '</td>\n')
-	html.write('\t' * 3 + '</tr>\n')
-	html.write('\t' * 2 + '</table>\n')
-	html.write('\t</body>\n')
-	html.write('</html>\n')
+		if position > int(details_dict["position"]):
+			templ += "			</tr>\n				<tr>"
+			position = 0
+		for _ in range(position, int(details_dict["position"]) - 1):
+			templ += "					<td></td>\n"
+		position = int(details_dict["position"])
+		templ += template.format(
+			key=key,
+			number=details_dict["number"],
+			small=details_dict["small"],
+			molar=details_dict["molar"],
+			electrons=details_dict["electron"],
+			)
+
+	templ += "    </tr>\n"
+	with open('periodic_table.html', 'w') as html_file:
+		html_file.write(html.format(templ=templ))
+
 
 def run():
 	# Read the file and parse the content into a dictionary

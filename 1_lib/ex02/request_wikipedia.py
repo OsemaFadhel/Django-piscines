@@ -55,3 +55,6 @@ if __name__ == '__main__':
 	except Exception as e:
 		print(e)
 		sys.exit(1)
+	except requests.exceptions.HTTPError as e:
+		print(f"HTTP Error: {e}")
+		sys.exit(1)

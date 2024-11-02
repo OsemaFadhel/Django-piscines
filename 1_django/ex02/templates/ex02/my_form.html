@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Input Form with History</title>
+</head>
+<body>
+    <h1>Submit Text</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Submission History</h2>
+    <ul>
+        {% for entry in history %}
+            <li>{{ entry.timestamp }}: {{ entry.text }}</li>
+        {% empty %}
+            <li>No submissions yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

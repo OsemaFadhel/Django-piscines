@@ -1,0 +1,55 @@
+{% extends "ex01/base.html" %}
+
+{% block title %}Ex01: Display process of a static page{% endblock title %}
+
+{% block content %}
+    <h2>Display Process of a Static Page</h2>
+    <!-- 1. Client Request -->
+    <section id="client-request">
+        <h2>1. Client Request</h2>
+        <p>The user opens a browser and enters a URL, sending an HTTP GET request to the server.</p>
+    </section>
+
+    <!-- 2. Server Receives Request -->
+    <section id="server-receive">
+        <h2>2. Server Receives Request</h2>
+        <p>The web server (e.g., NGINX or Apache) receives the request and passes it to the web application via an ASGI/WSGI interface.</p>
+    </section>
+
+    <!-- 3. Routing -->
+    <section id="routing">
+        <h2>3. Routing</h2>
+        <p>The web framework maps the URL to a specific view function based on routing rules. For example, a URL like <code>/static-page</code> is mapped to a view called <code>static_page_view</code>.</p>
+    </section>
+
+    <!-- 4. View Execution -->
+    <section id="view-execution">
+        <h2>4. View Execution</h2>
+        <p>The matched view function, <code>static_page_view</code>, is executed. Since this is a static page, there’s no need to fetch data from a database.</p>
+    </section>
+
+    <!-- 5. Template Rendering -->
+    <section id="template-rendering">
+        <h2>5. Template Rendering</h2>
+        <p>The view function calls the template engine to load the HTML template, such as <code>static_page.html</code>, from the templates directory.</p>
+        <p>If the template has placeholders, the view may supply optional data in a context dictionary.</p>
+    </section>
+
+    <!-- 6. HTTP Response Creation -->
+    <section id="http-response">
+        <h2>6. HTTP Response Creation</h2>
+        <p>The rendered HTML content is wrapped in an HTTP response object, which includes necessary headers and a status code (e.g., <code>200 OK</code>).</p>
+    </section>
+
+    <!-- 7. Response Sending -->
+    <section id="response-sending">
+        <h2>7. Response Sending</h2>
+        <p>The response is sent back to the client through the application server, where the browser will receive it.</p>
+    </section>
+
+    <!-- 8. Browser Receives and Renders -->
+    <section id="browser-render">
+        <h2>8. Browser Receives and Renders</h2>
+        <p>The browser receives the HTTP response and renders the HTML content, displaying the static web page to the user.</p>
+    </section>
+{% endblock content %}

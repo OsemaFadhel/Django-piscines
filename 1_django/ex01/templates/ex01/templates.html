@@ -1,0 +1,41 @@
+{% extends "ex01/base.html" %}
+{% load static %}
+
+{% block title %}Ex01: Template engine{% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}"/>
+{% endblock style %}
+
+{% block content %}
+     <!-- Django's Default Template Engine -->
+     <section id="django-template-engine">
+        <h2>Django's Default Template Engine</h2>
+        <p>Django's template engine combines static HTML with template syntax to create dynamic pages.
+        It allows defining reusable content blocks, looping over lists, conditionally rendering elements, and displaying context data passed from views.</p>
+    </section>
+
+    <!-- Blocks -->
+    <section id="blocks">
+        <h2>Blocks</h2>
+        <p>Blocks define sections within templates that can be overridden when extending a base template. They enable modular and reusable templates, where specific content areas can be customized.</p>
+    </section>
+
+    <!-- Loops (for ... in) -->
+    <section id="loops">
+        <h2>Loops (for ... in)</h2>
+        <p>Django templates support <code>for</code> loops to iterate over lists or dictionaries. This allows rendering repeated elements for each item in a collection, like displaying a list of products or users.</p>
+    </section>
+
+    <!-- if Control Structures -->
+    <section id="if-control">
+        <h2>If Control Structures</h2>
+        <p>Conditional statements (e.g., <code>if</code> and <code>else</code>) allow logic within templates to control which sections are shown based on certain conditions, like checking user authentication or item availability.</p>
+    </section>
+
+    <!-- Display of Context Variables -->
+    <section id="context-variables">
+        <h2>Display of Context Variables</h2>
+        <p>Context variables are data passed from the view to the template and displayed using double curly braces. This includes dynamic information, such as user data or item details.</p>
+    </section>
+{% endblock content %}

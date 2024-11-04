@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex03</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th {
+			height: 40px;
+			width: 80px;
+			text-align: center;
+			font-weight: bold;
+		}
+		td {
+			height: 40px;
+			width: 80px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1 style="display: flex; justify-content: center;">Ex03</h1>
+	<table border="1">
+		<!-- Table Headers -->
+		<tr>
+			<th style="background-color: black; color: white;">Noir</th>
+			<th style="background-color: red; color: white;">Rouge</th>
+			<th style="background-color: blue; color: white;">Bleu</th>
+			<th style="background-color: green; color: white;">Vert</th>
+		</tr>
+
+		<!-- Table Rows -->
+		{% for noir, rouge, bleu, vert in zipped_colors %}
+			<tr>
+				<td style="background-color: {{ noir }};"></td>
+				<td style="background-color: {{ rouge }};"></td>
+				<td style="background-color: {{ bleu }};"></td>
+				<td style="background-color: {{ vert }};"></td>
+			</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>
